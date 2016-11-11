@@ -1,0 +1,62 @@
+#include <iostream>
+#include "menu.h"
+
+using namespace std;
+
+//My own menu declaration, inheriting from the Menu class
+class MyMenu:Menu {
+
+	//My print menu (Can be omitted to do nothing)
+	void printMenu() {
+		cout << "Hello World \n" <<
+		"This is my menu!\n" <<
+		"Every key you hit will cost you an hour\n\n" <<
+		"Hit q to quit\n";
+	}
+
+	//NOTE: Play must be public
+public:
+	//The play function that contains MyMenu's game logic (loop)
+	void play(Player &p) {
+		clearConsole(); //Clear the console first
+		printMenu();
+		printStatus(p); //Should always be right after you print your menu
+		char i;
+		do {
+			i = getKey();
+			p.time = (p.time - 1 < 0) ? 0 : p.time - 1; //Decrease hour
+			if (p.time == 0) {
+				p.day++;
+				p.time = 18;
+			}
+			updateStatus(p); //If you only need to change the status then
+			//use this function. That way you dont have to be constantly
+			//clearing the console and printing the whole menu
+			
+			string str = "You hit ";
+			str += i;
+			updateStatus(p, str); //You can even append a message
+		} while (i != 'q');
+		//Simply exit out of the function and return to whomever
+		//called this play function
+	}
+
+};
+
+int main() {
+	MyMenu m;
+	//Create player for testing
+	Player p;
+	p.name = "Bobby";
+	p.intel = 10;
+	p.str = 5;
+	p.money = 200;
+	p.time = 5;
+	p.day = 0;
+
+	//Call my play function
+	m.play(p);
+	
+	cout << endl << "Done playing" << endl;
+	return 0;
+}
