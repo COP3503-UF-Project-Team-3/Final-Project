@@ -5,8 +5,8 @@ CC = g++
 CFLAGS = -g -Wall
 VFLAG = -std=c++11
 TARGET = finalproject.out
-INCLUDES = -I libraries/ -I src/ -I ./
-SOURCES = $(wildcard *.cpp)
+INCLUDES = -I libraries/
+SOURCES = $(wildcard src/*.cpp)
 #Objects will just be all the sources files
 OBJECTS = $(SOURCES:%.cpp=%.o)
 

@@ -25,10 +25,10 @@ public:
 		char i;
 		do {
 			i = getKey();
-			p.time = (p.time - 1 < 0) ? 0 : p.time - 1; //Decrease hour
-			if (p.time == 0) {
+			p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1; //Decrease hour
+			if (p.hours == 0) {
 				p.day++;
-				p.time = 18;
+				p.hours = 18;
 			}
 			updateStatus(p); //If you only need to change the status then
 			//use this function. That way you dont have to be constantly
@@ -47,12 +47,12 @@ public:
 int main() {
 	MyMenu m;
 	//Create player for testing
-	Player p;
+	Player p("");
 	p.name = "Bobby";
-	p.intel = 10;
-	p.str = 5;
-	p.money = 200;
-	p.time = 5;
+	p.intelligence = 10;
+	p.strength = 5;
+	p.dollars = 200;
+	p.hours = 5;
 	p.day = 0;
 
 	//Call my play function
