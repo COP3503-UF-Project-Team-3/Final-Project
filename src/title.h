@@ -12,6 +12,6 @@ public:
 	void play(Player &p);
 private:
 	void printMenu();
-}
+};
 
 #endif
