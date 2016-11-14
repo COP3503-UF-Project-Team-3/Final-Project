@@ -1,5 +1,6 @@
 #include <iostream>
 #include "menu.h"
+#include "title.h"
 
 using namespace std;
 
