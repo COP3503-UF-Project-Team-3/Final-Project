@@ -3,7 +3,11 @@
 
 using namespace std;
 
-TitleMenu::printMenu() {
+void TitleMenu::play(Player &p) {
+	cout << "PLAY!!!" << endl;
+}
+
+void TitleMenu::printMenu() {
 	cout << "\t\t\t" << "Stick RPG" << endl;
 	cout << endl;
 	cout << "\t" << "1. New Game" << endl;
