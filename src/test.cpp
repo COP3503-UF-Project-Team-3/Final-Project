@@ -45,7 +45,7 @@ public:
 };
 
 int main() {
-	MyMenu m;
+	TitleMenu m;
 	//Create player for testing
 	Player p("");
 	p.name = "Bobby";
