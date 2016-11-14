@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void play(Player &p) {
+void TitleMenu::play(Player &p) {
 	cout << "PLAY!!!" << endl;
 }
 
