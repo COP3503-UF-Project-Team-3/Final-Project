@@ -17,8 +17,8 @@
 	//after printMenu (For consistency)
 	void Menu::printStatus(Player const &p) const {
 		std::cout << "Hours: " << std::setw(4) << std::left <<
-			p.time << "$" << std::setw(6) << std::left <<
-			p.money << "Day: " << std::setw(4) << std::left <<
+			p.hours << "$" << std::setw(6) << std::left <<
+			p.dollars << "Day: " << std::setw(4) << std::left <<
 			p.day;
 	}
 	
