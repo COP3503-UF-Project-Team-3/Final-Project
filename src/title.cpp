@@ -1,10 +1,10 @@
+#include <cstddef>
 #include "htp.h"
 #include <iostream>
+#include <stdexcept>
 #include "title.h"
 
 using namespace std;
-
-#define FILE_PATH "../player.json"
 
 void TitleMenu::play(Player &p) {
 	clearConsole();
@@ -27,25 +27,37 @@ void TitleMenu::play(Player &p) {
 	} while(c != '1' && c != '2' and c != '3');
 
 	// User made a valid choice
-	cout << "You chose `";
+	
 	if (c == '1') {
-		cout << "New Game";
+		cout << "New Game!" << endl;
 		// Send them to the `How To Play` screen without a character
-		Player newP("");
 		HTPMenu m;
-		m.play(newP);
+		m.play();
 	} else if (c == '2') {
-		cout << "Continue";
 		// Initialize a `Player` object from a JSON file
-		Player oldP(FILE_PATH);
-		HTPMenu m;
-		m.play(oldP);
+		Player *ptr = NULL;
+		try {
+			Player old(true);
+			ptr = &old;
+		} catch (exception &e) {
+			cout << "Unable to retrieve the saved character." << endl;
+			cout << endl;
+		}
+		if (ptr == NULL) {
+			cout << "Starting a new game..." << endl;
+			HTPMenu m;
+			m.play();
+		} else {
+			cout << "Continuing the story of " << ptr->name << "..." << endl;
+			cout << endl;
+			// Map m;
+			// m.play(*ptr);
+		}
 	} else {
 		// User tapped '3'
-		cout << "Quit";
+		cout << "Quit!" << endl;
 		// Do nothing so the program exits
 	}
-	cout << "`" << endl;
 }
 
 void TitleMenu::printMenu() {
