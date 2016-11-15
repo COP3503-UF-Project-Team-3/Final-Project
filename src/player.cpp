@@ -1,8 +1,9 @@
 #include <iostream>
 #include "player.h"
-#include <stdexcept>
 
 using namespace std;
+
+#define FILE_PATH "player.json"
 
 #define NAME_KEY 	"name"
 #define INT_KEY 	"intelligence"
@@ -14,15 +15,9 @@ using namespace std;
 #define QTY_KEY		"quantity"
 #define PRICE_KEY	"price"
 
-Player::Player(string path) : path(path) {
-	if (!path.empty()) {
-		JSON obj;
-		try {
-			obj = jsonFromFile(path);
-		} catch(exception &e) {
-			cerr << "Unable to retrieve the JSON from file: " << path << endl;
-			exit(0);
-		}
+Player::Player(bool fromFile) {
+	if (fromFile) {
+		JSON obj = jsonFromFile(FILE_PATH);
 		
 		name = obj[NAME_KEY].get<string>();
 		intelligence = obj[INT_KEY].get<int>();
@@ -67,5 +62,5 @@ bool Player::save() {
 	}
 	obj[INV_KEY] = inv;
 
-	return writeJSON(obj, path);
+	return writeJSON(obj, FILE_PATH);
 }
