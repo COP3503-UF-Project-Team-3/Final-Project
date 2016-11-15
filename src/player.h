@@ -18,8 +18,9 @@ public:
 	int dollars;
 	int hours; // Num left in day
 	int day;
-	// Constructs a `Player` object from a JSON file
-	Player(std::string path);
+	
+	Player(bool fromFile);
+
 	/* 
 	 *	Saves the `Player` object to the same path it was constructed from
 	 *	Returns `true` on success
