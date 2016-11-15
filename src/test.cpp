@@ -47,13 +47,16 @@ public:
 int main() {
 	TitleMenu m;
 	//Create player for testing
-	Player p("");
+	Player p(false);
 	p.name = "Bobby";
 	p.intelligence = 10;
 	p.strength = 5;
 	p.dollars = 200;
 	p.hours = 5;
 	p.day = 0;
+
+	// For testing
+	// p.save();
 
 	//Call my play function
 	m.play(p);
