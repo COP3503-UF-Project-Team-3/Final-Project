@@ -8,25 +8,26 @@ using namespace std;
 
 void TitleMenu::play(Player &p) {
 	clearConsole();
-	
+	//Print the initial menu
+	printMenu();
+	cout << "Tap the key of your choice to begin!" << endl;
+	cout << endl;
 	// Wait for choice
 	char c;
 	bool chose = false;
 	do {
 		if (chose) {
-			cout << "`" << c << "` is an invalid choice." << endl;
-			cout << endl;
-			cout << endl;
-			cout << endl;
+			clearLine(); //Just clear the last line (The endl)
+			cout << "`" << c << "` is an invalid choice."; //This is the new
+			//last line (Don't endl)
 		}
-		printMenu();
-		cout << "Tap the key of your choice to begin!" << endl;
-		cout << endl;
 		c = getKey();
 		chose = true;
 	} while(c != '1' && c != '2' and c != '3');
 
 	// User made a valid choice
+	// Consider clearing the console?
+	//clearConsole();
 	
 	if (c == '1') {
 		cout << "New Game!" << endl;
