@@ -26,6 +26,7 @@ public:
 	 *	Returns `true` on success
 	 */
 	bool save();
+	void print();
 private:
 	const std::string path;
 	std::vector<Item> inventory;
