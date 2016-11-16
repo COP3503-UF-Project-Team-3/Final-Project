@@ -64,3 +64,14 @@ bool Player::save() {
 
 	return writeJSON(obj, FILE_PATH);
 }
+
+void Player::print() {
+	cout << endl;
+	cout << "Name: " << name << endl;
+	cout << "Intelligence: " << intelligence << endl;
+	cout << "Strength: " << strength << endl;
+	cout << "Cash: $" << dollars << endl;
+	cout << "Hours left: " << hours << endl;
+	cout << "Day: " << day << endl;
+	cout << endl;
+}
