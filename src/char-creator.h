@@ -4,4 +4,8 @@
  * Character creation
  * Made by: Adam
  */
+#include "player.h"
+
+Player newChar();
+
 #endif

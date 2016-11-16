@@ -1,19 +1,26 @@
+#include "char-creator.h"
 #include "htp.h"
 #include <iostream>
 
 using namespace std;
 
-// User chose to continue or asked for help while playing
+// User asked for help while playing
 void HTPMenu::play(Player &p) {
 	showRules();
+	p.print();
 	// FIXME: show map
 	// Map m;
 	// m.play(&p);
 }
-// User chose to start a new game
+// User is starting a new game
 void HTPMenu::play() {
 	showRules();
 	// Go to character creation
+	Player p = newChar();
+	p.print();
+	// FIXME: show map
+	// Map m;
+	// m.play(&p);
 }
 
 void HTPMenu::showRules() {
