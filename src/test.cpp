@@ -1,6 +1,7 @@
 #include <iostream>
 #include "menu.h"
 #include "title.h"
+#include "store.h"
 
 using namespace std;
 
@@ -45,7 +46,7 @@ public:
 };
 
 int main() {
-	TitleMenu m;
+	StoreMenu m;
 	//Create player for testing
 	Player p(false);
 	p.name = "Bobby";
