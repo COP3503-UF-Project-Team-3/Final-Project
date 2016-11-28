@@ -8,6 +8,6 @@
 struct Item {
 	std::string name;
 	int quantity;
-	int price; //Do we want to deal with doubles?
+	int price; //Do we want to deal with doubles? Na
 };
 #endif //ITEM_H
