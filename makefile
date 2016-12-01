@@ -6,7 +6,8 @@ CFLAGS = -g -Wall
 VFLAG = -std=c++11
 TARGET = finalproject.out
 INCLUDES = -I libraries/
-SOURCES = $(wildcard src/*.cpp)
+SRC = src/
+SOURCES = $(wildcard $(SRC)*.cpp)
 #Objects will just be all the sources files
 OBJECTS = $(SOURCES:%.cpp=%.o)
 
@@ -22,5 +23,5 @@ phony:
 	echo $(SOURCES)
 
 clean:
-	$(RM) $(TARGET) *.o
+	$(RM) $(TARGET) $(SRC)*.o
 
