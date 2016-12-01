@@ -23,5 +23,5 @@ phony:
 	echo $(SOURCES)
 
 clean:
-	$(RM) $(TARGET) $(SRC)*.o
+	$(RM) $(TARGET) $(OBJECTS)
 
