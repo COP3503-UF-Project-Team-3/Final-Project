@@ -16,7 +16,7 @@ void Map::play(Player &p) {
 	printStatus(p);
 
 
-	cout << "\nWhere would you like to go? (1-5)" << endl;
+	cout << "\nWhere would you like to go? (1-6)" << endl;
 	char c;
 	bool valid = false;
 	int errorCount = 0; // Counts the number of times an error message is displayed
@@ -40,6 +40,10 @@ void Map::play(Player &p) {
 		} else if(c == '5') {
 			Store s;
 			s.play(p);
+			else if(c == '6') {
+				School sc;
+				sc.play(p);
+			}
 		} else {
 			valid = false;
 			errorCount++;
