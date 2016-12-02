@@ -17,6 +17,11 @@ using namespace std;
 
 int StoreMenu::LAST_DATE = 0; //The last day the player entered the store
 
+StoreMenu::StoreMenu() {
+	lastItem = -1;
+	lastAmount = 0;
+}
+
 //My play function for the store
 void StoreMenu::play(Player &p) {
 	createItems(p); //Make sure the items are there
@@ -74,7 +79,7 @@ void StoreMenu::printMenu(const Player &p, bool selling) {
 	cout << "\t*************************" << endl;
 	cout << endl << endl;
 	string mode = (selling) ? "SELLING" : "BUYING";
-	cout << "You are currently " << mode << endl;
+	cout << "You are currently " << mode << endl << endl;
 	//Print items and prices
 	for (unsigned int i=0; i<p.inventory.size(); i++) {
 		Item item = p.inventory[i];
@@ -152,7 +157,14 @@ void StoreMenu::createItems(Player &p) {
 
 //Purchase the item at the given index
 void StoreMenu::purchase(Player &p, int item) {
-	const string l = "Purchased 1 ";
+	const string l = "Purchased ";
+	//Increment counter for concecutive purchases
+	if (item == lastItem) {
+		lastAmount++;
+	} else {
+		lastAmount = 1;
+		lastItem = item;
+	}
 	Item& i = p.inventory[item];
 	//Check for errors
 	if ((p.dollars - i.price) < 0) {
@@ -165,13 +177,22 @@ void StoreMenu::purchase(Player &p, int item) {
 		i.marketQuantity--;
 		i.quantity++;
 		printMenu(p, false);
-		updateStatus(p, l + i.name);
+		//NOTE: C++11 needed for to_string!
+		updateStatus(p, l + to_string(lastAmount) + ' ' + i.name); //Mix all the types!
 		//updateStatus(p);
 	}
 }
 //Sell the item at the given index
 void StoreMenu::sell(Player &p, int item) {
-	const string l = "Sold 1 ";
+	const string l = "Sold ";
+	//Increment counter for concecutive sales
+	if (item == lastItem) {
+		lastAmount++;
+	} else {
+		lastAmount = 1;
+		lastItem = item;
+	}
+
 	Item& i = p.inventory[item];
 	//Check for errors
 	if (i.quantity < 1) {
@@ -182,7 +203,8 @@ void StoreMenu::sell(Player &p, int item) {
 		i.marketQuantity++;
 		i.quantity--;
 		printMenu(p, true);
-		updateStatus(p, l + i.name);
+		//NOTE: C++11 needed for to_string!
+		updateStatus(p, l + to_string(lastAmount) + ' ' + i.name); //Mix all the types!
 		//updateStatus(p);
 	}
 }

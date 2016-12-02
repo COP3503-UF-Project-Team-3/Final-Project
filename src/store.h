@@ -12,6 +12,8 @@
 
 class StoreMenu:Menu {
 public:
+	//Constructor
+	StoreMenu();
 	//My play function for the store
 	void play(Player &p);
 	//Change the prices of the items randomly d amount of times
@@ -19,6 +21,9 @@ public:
 
 private:
 	static int LAST_DATE; //The last day the player entered the store
+
+	int lastItem; //Used for the status when purchasing/selling items
+	int lastAmount; //^^
 
 	//Prints the menu (Won't actually, I need the player object)
 	void printMenu();
