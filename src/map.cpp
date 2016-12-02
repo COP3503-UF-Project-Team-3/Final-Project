@@ -48,7 +48,7 @@ void Map::play(Player &p) {
 			valid = false;
 			errorCount++;
 
-			if(errorCount > 1) // This means there is an error message being displayed
+			if(errorCount > 1) // Don't want to clear the first message
 				clearLine(); // Now let's clear it and write in a new one
 
 			// A list of different error messages so the user knows they are entering invalid input
