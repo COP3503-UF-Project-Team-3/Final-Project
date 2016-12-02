@@ -5,11 +5,7 @@
 I'm not sure what they will be called, but these will
 be used to pass the player to the designated menu
 */
-#include "home.h"
-#include "work.h"
-#include "gym.h"
-#include "bar.h"
-#include "store.h"
+
 
 
 using namespace std;
