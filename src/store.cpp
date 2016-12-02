@@ -15,15 +15,15 @@
  */
 using namespace std;
 
-int StoreMenu::LAST_DATE = 0; //The last day the player entered the store
+int Store::LAST_DATE = 0; //The last day the player entered the store
 
-StoreMenu::StoreMenu() {
+Store::Store() {
 	lastItem = -1;
 	lastAmount = 0;
 }
 
 //My play function for the store
-void StoreMenu::play(Player &p) {
+void Store::play(Player &p) {
 	createItems(p); //Make sure the items are there
 	bool selling = false;
 	//Stimulate the market according the days that have passed
@@ -66,12 +66,12 @@ void StoreMenu::play(Player &p) {
 }
 
 //Prints the menu (Won't actually, I need the player object)
-void StoreMenu::printMenu() {
+void Store::printMenu() {
 	//This funtion should never be called
 	cout << "Error in store menu!" << endl;
 }
 //Prints the menu with the item prices
-void StoreMenu::printMenu(const Player &p, bool selling) {
+void Store::printMenu(const Player &p, bool selling) {
 	//Player is needed so this is the function that will be called
 	clearConsole();
 	cout << "\t*************************" << endl;
@@ -97,7 +97,7 @@ void StoreMenu::printMenu(const Player &p, bool selling) {
 }
 
 //Change the prices of the items randomly d amount of times
-void StoreMenu::simulateMarket(std::vector<Item> &v) {
+void Store::simulateMarket(std::vector<Item> &v) {
 	srand(time(NULL)); //Blow on the dice
 	for (unsigned int i=0; i<v.size(); i++) {
 		Item& item = v[i];
@@ -115,7 +115,7 @@ void StoreMenu::simulateMarket(std::vector<Item> &v) {
 }
 
 //Will create the items and store them into the player
-void StoreMenu::createItems(Player &p) {
+void Store::createItems(Player &p) {
 	if (p.inventory.empty() == false)
 		return;
 	//This function should only run once completely
@@ -156,7 +156,7 @@ void StoreMenu::createItems(Player &p) {
 }
 
 //Purchase the item at the given index
-void StoreMenu::purchase(Player &p, int item) {
+void Store::purchase(Player &p, int item) {
 	const string l = "Purchased ";
 	//Increment counter for concecutive purchases
 	if (item == lastItem) {
@@ -183,7 +183,7 @@ void StoreMenu::purchase(Player &p, int item) {
 	}
 }
 //Sell the item at the given index
-void StoreMenu::sell(Player &p, int item) {
+void Store::sell(Player &p, int item) {
 	const string l = "Sold ";
 	//Increment counter for concecutive sales
 	if (item == lastItem) {

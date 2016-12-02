@@ -10,10 +10,10 @@
  *	Created by Jazy
  */
 
-class StoreMenu:Menu {
+class Store:Menu {
 public:
 	//Constructor
-	StoreMenu();
+	Store();
 	//My play function for the store
 	void play(Player &p);
 	//Change the prices of the items randomly d amount of times

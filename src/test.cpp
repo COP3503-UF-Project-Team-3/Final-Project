@@ -60,7 +60,7 @@ public:
  */
 
 int main() {
-	StoreMenu m; //Replace this variable type with the name of your class to test it
+	Store m; //Replace this variable type with the name of your class to test it
 	//Create player for testing
 	Player p(false);
 	p.name = "Bobby";
