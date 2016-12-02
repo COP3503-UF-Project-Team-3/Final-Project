@@ -15,8 +15,6 @@ class School:Menu {
 public:
     
     void play(Player &p);
-    static void clearConsole();
-    static void clearLine();
     
 private:
 
