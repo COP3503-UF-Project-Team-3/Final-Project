@@ -13,7 +13,7 @@ void Bar::play(Player &p) {
 	hype = 0;
 	while (true)
 	{
-		int choice = menu();
+		int choice = menu(p);
 		if (choice == 1)
 		{
 			drunkeness += 10;
@@ -35,8 +35,9 @@ void Bar::printMenu() {
 	
 }
 
-int Bar::menu()
+int Bar::menu(Player &p)
 {
+	clearConsole();
 	int x = 0, y = 0;
 	cout << "   Welcome to the Drunken Clam!!!\n\n"
 		 << "1. \"Pour me a pint of the dark stuff!\"\n"
@@ -46,14 +47,18 @@ int Bar::menu()
 	if (drunkeness >= 100) { x = 100; } else { x = drunkeness; }
 	if (hype >= 100) { y = 100; } else { y = hype; }
 	cout << "Drunkeness: " << x << "	Bar Hype: " << y << endl << endl;
-	cout << "Choice::	";
+	//cout << "Choice::	";
+	printStatus(p);
 	int choice = 0;
-	cin >> choice;
+	//TODO Error check
+	choice = getKey() - '0';
+	//cin >> choice;
 	return choice;
 }
 
 void Bar::leave()
 {
+	clearConsole();
 	int avgNight = (drunkeness + hype) / 2;
 	if (avgNight > 80)
 	{
@@ -74,6 +79,8 @@ void Bar::leave()
 	}
 	drunkeness = 0;
 	hype = 0;
+	cout << "\nHit a key to continue..." << endl;
+	getKey();
 }
 
 string Bar::randomNight(int rank)
