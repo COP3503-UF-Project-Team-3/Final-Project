@@ -6,6 +6,11 @@
 
 using namespace std;
 
+int main() {
+	
+	return 0;
+}
+
 void TitleMenu::play(Player &p) {
 	clearConsole();
 	

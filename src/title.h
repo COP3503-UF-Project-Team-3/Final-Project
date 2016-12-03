@@ -7,6 +7,8 @@
 #include "menu.h"
 #include "player.h"
 
+int main();
+
 class TitleMenu: Menu {
 public:
 	void play(Player &p);
@@ -15,3 +17,4 @@ private:
 };
 
 #endif
+
