@@ -27,9 +27,9 @@ public:
 	 */
 	bool save();
 	void print();
+	std::vector<Item> inventory;
 private:
 	const std::string path;
-	std::vector<Item> inventory;
 };
 
 #endif
