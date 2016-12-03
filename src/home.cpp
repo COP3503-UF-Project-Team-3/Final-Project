@@ -14,7 +14,7 @@ void Home::play(Player &p) {
 	bool once = false;
 	do {
 		if (once) {
-			string msg = "`" + c + "` " + " is an invalid choice.";
+			string msg = "`" + string(1,c) + "` " + " is an invalid choice.";
 			updateStatus(p, msg);
 		}
 		once = true;
