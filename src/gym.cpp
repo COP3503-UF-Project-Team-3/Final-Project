@@ -18,29 +18,31 @@ void Gym::printMenu() {
 
 //Play function for gym
 void Gym::play(Player &p) {
-    clearConsole();
-    printMenu();
-    printStatus(p);
+    
     char i;
     do {
+        clearConsole();
+        printMenu();
+        printStatus(p);
+        
         i = getKey();
-        if (p.hours < 0){
-            p.hours = 0;
+        
+        clearConsole();
+        
+        
+        if (p.hours - 2 < 0 && i != 'q'){
+            cout << "You don't have enough hours, go home." << endl;
         }
         
-        if (p.hours == 0){
-            updateStatus(p, "You have 0 hours, go home.");
-        }
-        
-        if (p.hours > 0){
-        int scenario = (rand() % 7) + 1; //Generates a random number 1-7 for our possible 7 scenarios of what can occur at the gym
+        if (p.hours - 2 >= 0){
+            int scenario = (rand() % 7) + 1; //Generates a random number 1-7 for our possible 7 scenarios of what can occur at the gym
         
         if (scenario == 1){ //Series of if-statements correlating to each scenario
             if (i == '1'){ //User chose "Cardio" option
                 cout << "You just killed it on the elliptical, good job! (+1)" << endl;
                 p.strength += 1;
                 
-                p.hours = p.hours - 2;
+                p.hours = p.hours - 1;
             }
             else if (i == '2'){ //User chose "Upper-body" option
                 cout << "You set yourself a new record for pull-ups, good job! (+3)" << endl;
@@ -53,6 +55,9 @@ void Gym::play(Player &p) {
                 p.strength += 3;
                 
                 p.hours = p.hours - 2; //Decrease 2 hrs if lifting
+            }
+            else if (i != 'q') {
+                cout << "Invalid input" << endl;
             }
         }
         
@@ -68,6 +73,9 @@ void Gym::play(Player &p) {
             else if (i == '3'){
                 cout << "You were in the middle of squatting when your pants ripped. You ran out of the weight room but there was no hiding this." << endl;
 
+            }
+            else if (i != 'q') {
+                cout << "Invalid input" << endl;
             }
         }
         
@@ -87,6 +95,9 @@ void Gym::play(Player &p) {
                 p.strength += 3;
                 p.hours = p.hours - 2;
             }
+            else if (i != 'q') {
+                cout << "Invalid input" << endl;
+            }
         }
         
         else if (scenario == 4){
@@ -104,6 +115,9 @@ void Gym::play(Player &p) {
                 cout << "You were trying to show off and didn't hurt yourself. Good job! (+3)" << endl;
                 p.strength += 3;
                 p.hours = p.hours - 2;
+            }
+            else if (i != 'q') {
+                cout << "Invalid input" << endl;
             }
         }
         
@@ -123,6 +137,9 @@ void Gym::play(Player &p) {
                 p.strength += 3;
                 p.hours = p.hours - 2;
             }
+            else if (i != 'q') {
+                cout << "Invalid input" << endl;
+            }
         }
         
         else if (scenario == 6){
@@ -141,6 +158,9 @@ void Gym::play(Player &p) {
                 p.strength += 3;
                 p.hours = p.hours - 2;
             }
+            else if (i != 'q') {
+                cout << "Invalid input" << endl;
+            }
         }
         
         else if (scenario == 7){
@@ -156,10 +176,16 @@ void Gym::play(Player &p) {
                 cout << "You were doing your last lunge when you heard a crack. That can't be good." << endl;
                 p.hours = p.hours - 2;
             }
+            else if (i != 'q') {
+                cout << "Invalid input" << endl;
+            }
         }
-
-        updateStatus(p);
+    }
+        if (i != 'q'){
+            cout << endl << "Hit any key to continue" << endl;
+            getKey();
         }
+        
     } while (i != 'q');
     //Exits play function
 }
