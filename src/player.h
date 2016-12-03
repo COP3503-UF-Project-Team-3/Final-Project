@@ -18,7 +18,6 @@ public:
 	int dollars;
 	int hours; // Num left in day
 	int day;
-	std::vector<Item> inventory;
 	
 	Player(bool fromFile);
 
@@ -30,6 +29,7 @@ public:
 	void print();
 private:
 	const std::string path;
+	std::vector<Item> inventory;
 };
 
 #endif
