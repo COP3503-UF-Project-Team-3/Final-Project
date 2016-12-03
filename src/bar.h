@@ -8,15 +8,17 @@
 
 #include "player.h"
 #include "menu.h"
+#include <string>
 
 class Bar: Menu {
 public:
 	void play(Player &p);
 private:
 	void printMenu();
-	int menu();
+	int menu(Player &p);
 	void leave();
-	string randomNight(int rank);
+	std::string randomNight(int rank);
 	int drunkeness;
 	int hype;
 };
+#endif
