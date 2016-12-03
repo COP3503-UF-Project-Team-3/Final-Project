@@ -13,10 +13,11 @@ void Work::printMenu() { //This will present the player's options at the workpla
     cout<<"3. Computer work \n";
     cout<<"4. Paper work \n";
     cout<<"5. Leave\n\n";
-    int choice;
-    cout<<"Choice: "
+    char choice;
+    cout<<"Choice: ";
+    choice=getKey();
     cin>>choice;
-    
+
 }
 
 void Work::play(Player &p) {
@@ -24,6 +25,10 @@ void Work::play(Player &p) {
     clearConsole();
     printMenu():
     printStatus(p);
+    char choice;
+    cout<<"Choice: ";
+    choice=getKey();
+    cin>>choice;
     
     int event = rand()%7+1; //This will randomly select a workplace event depending on the player's choice of activity.
     
