@@ -33,10 +33,9 @@ void Map::play(Player &p) {
 		} else if(c == '5') {
 			Store s;
 			s.play(p);
-			else if(c == '6') {
-				School sc;
-				sc.play(p);
-			}
+		} else if(c == '6') {
+			School sc;
+			sc.play(p);
 		} else {
 			valid = false;
 			errorCount++;
