@@ -24,39 +24,35 @@ void Gym::play(Player &p) {
     char i;
     do {
         i = getKey();
-        p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1; //Decrease hour for hitting key
-        if (p.hours == 0) {
-            p.day++;
-            p.hours = 18;
+        if (p.hours < 0){
+            p.hours = 0;
         }
         
+        if (p.hours == 0){
+            updateStatus(p, "You have 0 hours, go home.");
+        }
+        
+        if (p.hours > 0){
         int scenario = (rand() % 7) + 1; //Generates a random number 1-7 for our possible 7 scenarios of what can occur at the gym
         
         if (scenario == 1){ //Series of if-statements correlating to each scenario
             if (i == '1'){ //User chose "Cardio" option
                 cout << "You just killed it on the elliptical, good job! (+1)" << endl;
-               
                 p.strength += 1;
-               
+                
+                p.hours = p.hours - 2;
             }
             else if (i == '2'){ //User chose "Upper-body" option
                 cout << "You set yourself a new record for pull-ups, good job! (+3)" << endl;
                 p.strength += 3;
                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1; //Decrease 1 more hour if lifting
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2; //Decrease 2 hrs if lifting
             }
             else if (i == '3'){ //User chose "Lower-body" option
                 cout << "You did your heaviest leg press to date, good job! (+3)" << endl;
                 p.strength += 3;
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1; //Decrease 1 more hour if lifting
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                
+                p.hours = p.hours - 2; //Decrease 2 hrs if lifting
             }
         }
         
@@ -79,26 +75,17 @@ void Gym::play(Player &p) {
             if (i == '1'){
                 cout << "You ran 3 miles in record timing! (+1)" << endl;
                 p.strength += 1;
+                p.hours = p.hours - 1;
             }
             else if (i == '2'){
                 cout << "You may never be able to raise your arms again after that. (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
             else if (i == '3'){
                 cout << "You never want to hear the word lunge again after that. (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
         }
         
@@ -106,26 +93,17 @@ void Gym::play(Player &p) {
             if (i == '1'){
                 cout << "You took a spin class and got so pumped that you almost fell off the bike. (+1)" << endl;
                 p.strength += 1;
+                p.hours = p.hours - 1;
             }
             else if (i == '2'){
                 cout << "It was shoulder day and you killed it. (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
             else if (i == '3'){
                 cout << "You were trying to show off and didn't hurt yourself. Good job! (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
         }
         
@@ -133,26 +111,17 @@ void Gym::play(Player &p) {
             if (i == '1'){
                 cout << "You played a game of basketball and scored the winning shot! (+1)" << endl;
                 p.strength += 1;
+                p.hours = p.hours - 1;
             }
             else if (i == '2'){
                 cout << "Your arms feel like you were carrying around a baby elephant for an hour. (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+               p.hours = p.hours - 2;
             }
             else if (i == '3'){
                 cout << "You were doing calf raises and your leg cramped up. It was brutal but you recovered quickly. (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
         }
         
@@ -160,53 +129,37 @@ void Gym::play(Player &p) {
             if (i == '1'){
                 cout << "You ran the treadmill and didn't fall this time. (+1)" << endl;
                 p.strength += 1;
+                p.hours = p.hours - 1;
             }
             else if (i == '2'){
                 cout << "You had too much preworkout and lifted heavier than you should have. This is gonna hurt tomorrow. (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
             else if (i == '3'){
                 cout << "You didn't drink enough water and almost passed out but recovered. (+3)" << endl;
                 p.strength += 3;
-                
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
         }
         
         else if (scenario == 7){
             if (i == '1'){
                 cout << "You were playing basketball and.. let's just say there was a lot of bleeding involved." << endl;
+                p.hours = p.hours - 1;
             }
             else if (i == '2'){
                 cout << "You had so much energy that mid curl you threw the weight at the huge guy behind you. Run!" << endl;
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
             else if (i == '3'){
                 cout << "You were doing your last lunge when you heard a crack. That can't be good." << endl;
-                p.hours = (p.hours - 1 < 0) ? 0 : p.hours - 1;
-                if (p.hours == 0) {
-                    p.day++;
-                    p.hours = 18;
-                }
+                p.hours = p.hours - 2;
             }
         }
 
         updateStatus(p);
-        
+        }
     } while (i != 'q');
     //Exits play function
 }

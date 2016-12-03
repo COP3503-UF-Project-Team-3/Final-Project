@@ -19,11 +19,7 @@ public:
 private:
 
     void printMenu();
-    void printStatus(Player const &p) const;
-    void printStatus(Player const &p, std::string const &msg) const;
-    void updateStatus(Player const &p) const;
-    void updateStatus(Player const &p, std::string const &msg) const;
-    
+ 
 };
 
 
