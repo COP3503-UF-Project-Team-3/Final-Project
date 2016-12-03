@@ -6,6 +6,7 @@
 using namespace std;
 
 void Work::printMenu() { //This will present the player's options at the workplace.
+    
     cout<<"Let's get to work! The job won't get done on its own. Pick a task from the list below.\n\n";
     cout<<"1. Company meeting \n";
     cout<<"2. Field task \n";
@@ -13,6 +14,7 @@ void Work::printMenu() { //This will present the player's options at the workpla
     cout<<"4. Paper work \n";
     cout<<"5. Leave\n\n";
     cout<<"Choice: ";
+    
 }
 
 void Work::play(Player &p) {
@@ -20,35 +22,15 @@ void Work::play(Player &p) {
     clearConsole();
     printMenu();
     printStatus(p);
-
     char choice;
+    
     do {
+        
         choice = getKey();
+        int event = rand()%7+1; //This will randomly select a workplace event depending on the player's choice of activity.
 
         if (choice == '1') {
-
-        } else if (choice == '2') {
             
-        } else if (choice == '3') {
-
-        } else if (choice == '4') {
-
-        } else if (choice == '5') {
-            // Do nothing, let it exit
-        } else {
-            // Choice is not '1'-'5'
-            string err = "`" + string(1, choice) + "` is not a valid choice.";
-            updateStatus(p, err);
-        }
-
-    } while (choice != '5');
-    
-    int event = rand()%7+1; //This will randomly select a workplace event depending on the player's choice of activity.
-    
-    do {
-    
-        if (choice==1) {
-
             if (event==1) {
 
                 cout<<"Everyone gets a pay raise because of recent impressive gains.";
@@ -56,7 +38,7 @@ void Work::play(Player &p) {
                 p.hours-=1;
 
             }
-
+            
             else if (event==2) {
 
                 cout<<"You have been tapped as project manager for the next major project.";
@@ -72,7 +54,7 @@ void Work::play(Player &p) {
                 p.hours-=1;
 
             }
-
+            
             else if (event==4) {
 
                 cout<<"You are responsible for bringing food to the meeting.";
@@ -104,11 +86,11 @@ void Work::play(Player &p) {
                 p.hours+=1;
 
             }
-
-        }
-
-        else if (choice==2) {
-
+            
+        } 
+        
+        else if (choice == '2') {
+            
             if (event==1) {
 
                 cout<<"The owner of a locally-owned restaurant needs a program that handles income and inventory.";
@@ -132,7 +114,7 @@ void Work::play(Player &p) {
                 p.hours-=3;
 
             }
-
+            
             else if (event==4) {
 
                 cout<<"The app for the city transit system is in need of updates to enhance real-time features.";
@@ -164,12 +146,12 @@ void Work::play(Player &p) {
                 p.hours-=4;
 
             }
-
+            
         }
-
-        else if (choice==3) {
-
-            if (event==1) {
+        
+        else if (choice == '3') {
+            
+             if (event==1) {
 
                 cout<<"You must revamp a program that was written five years ago.";
                 p.dollars+=(10+p.intelligence/2);
@@ -192,7 +174,7 @@ void Work::play(Player &p) {
                 p.hours-=5;
 
             }
-
+            
             else if (event==4) {
 
                 cout<<"You are in charge of website design/interface services for clients today.";
@@ -217,10 +199,10 @@ void Work::play(Player &p) {
 
             }
 
-        }
-
-        else if (choice==4) {
-
+        } 
+        
+        else if (choice == '4') {
+            
             if (event==1) {
 
                 cout<<"You must assist the company manager in organizing the employee payroll.";
@@ -244,7 +226,7 @@ void Work::play(Player &p) {
                 p.hours-=1;
 
             }
-
+            
             else if (event==4) {
 
                 cout<<"You must shred old plans that are no longer relevant to current projects.";
@@ -277,17 +259,22 @@ void Work::play(Player &p) {
 
             }
 
+        } 
+        
+        else if (choice == '5') {
+            // Do nothing, let it exit
+        } 
+        
+        else { // Choice is not '1'-'5'
+            
+            string err = "`" + string(1, choice) + "` is not a valid choice.";
+            updateStatus(p, err);
+            
         }
 
-        else {
-
-            cout<<"Have a great evening. We will see you when you get back!";
-
-        }
+    } 
     
-    }
-    
-    while (p.hours>0);
+    while (choice != '5' and p.hours>0);
     
     if (p.hours<=0) {
         
