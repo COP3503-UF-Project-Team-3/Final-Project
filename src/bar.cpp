@@ -9,15 +9,6 @@
 using namespace std;
 
 void Bar::play(Player &p) {
-
-}
-
-void Bar::printMenu() {
-	
-}
-
-Bar::Bar()
-{
 	drunkeness = 0;
 	hype = 0;
 	while (true)
@@ -38,6 +29,10 @@ Bar::Bar()
 			break;
 		}
 	}
+}
+
+void Bar::printMenu() {
+	
 }
 
 int Bar::menu()

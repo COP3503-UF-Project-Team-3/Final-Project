@@ -2,7 +2,7 @@
 #define BAR_H
 /*
  * Bar menu
- * Made by: Arnold
+ * Made by: John
  * Edited by: Adam
  */
 
@@ -12,7 +12,6 @@
 class Bar: Menu {
 public:
 	void play(Player &p);
-	Bar();
 private:
 	void printMenu();
 	int menu();
