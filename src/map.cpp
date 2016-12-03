@@ -1,5 +1,14 @@
+#include "bar.h"
+#include "gym.h"
+#include "home.h"
+#include "htp.h"
+#include "inventory.h"
 #include <iostream>
 #include "map.h"
+#include "school.h"
+#include "stats.h"
+#include "store.h"
+#include "work.h"
 
 using namespace std;
 

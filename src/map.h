@@ -1,10 +1,13 @@
+#ifndef MAP_H
+#define MAP_H
+/*
+ * Map menu
+ * Made by: Jared
+ * Edited by: Adam
+ */
+
 #include "menu.h"
 #include "player.h"
-#include "home.h"
-#include "work.h"
-#include "gym.h"
-#include "bar.h"
-#include "store.h"
 
 class Map: Menu {
 public:
@@ -12,3 +15,5 @@ public:
 private:
 	void printMenu();
 };
+
+#endif
