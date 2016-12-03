@@ -1,29 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
-#include <menu.h>
-#include <player.h>
+#include "work.h"
 
 using namespace std;
 
-class Work {
-    
-public:
-
-    void play(Player &p);
-    static void clearConsole():
-    static void clearLine();
-    
-private:
-    
-    void printMenu();
-    void printStatus(Player &p, string &msg);
-    void updateStatus(Player &p, string &msg);
-    
-};
-
 void Work::printMenu() { //This will present the player's options at the workplace.
-    
     cout<<"Let's get to work! The job won't get done on its own. Pick a task from the list below.\n\n";
     cout<<"1. Company meeting \n";
     cout<<"2. Field task \n";
@@ -33,7 +15,6 @@ void Work::printMenu() { //This will present the player's options at the workpla
     int choice;
     cout<<"Choice: "
     cin>>choice;
-    
 }
 
 void Work::play(Player &p) {
