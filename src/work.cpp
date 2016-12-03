@@ -6,29 +6,42 @@
 using namespace std;
 
 void Work::printMenu() { //This will present the player's options at the workplace.
-    
     cout<<"Let's get to work! The job won't get done on its own. Pick a task from the list below.\n\n";
     cout<<"1. Company meeting \n";
     cout<<"2. Field task \n";
     cout<<"3. Computer work \n";
     cout<<"4. Paper work \n";
     cout<<"5. Leave\n\n";
-    char choice;
     cout<<"Choice: ";
-    choice=getKey();
-    cin>>choice;
-
 }
 
 void Work::play(Player &p) {
     
     clearConsole();
-    printMenu():
+    printMenu();
     printStatus(p);
+
     char choice;
-    cout<<"Choice: ";
-    choice=getKey();
-    cin>>choice;
+    do {
+        choice = getKey();
+
+        if (choice == '1') {
+
+        } else if (choice == '2') {
+            
+        } else if (choice == '3') {
+
+        } else if (choice == '4') {
+
+        } else if (choice == '5') {
+            // Do nothing, let it exit
+        } else {
+            // Choice is not '1'-'5'
+            string err = "`" + string(1, choice) + "` is not a valid choice.";
+            updateStatus(p, err);
+        }
+
+    } while (choice != '5');
     
     int event = rand()%7+1; //This will randomly select a workplace event depending on the player's choice of activity.
     
