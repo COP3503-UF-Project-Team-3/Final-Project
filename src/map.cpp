@@ -36,6 +36,15 @@ void Map::play(Player &p) {
 		} else if(c == '6') {
 			School sc;
 			sc.play(p);
+		} else if (c == 'i') {
+			InventoryMenu i;
+			i.play(p);
+		} else if (c == 's') {
+			StatsMenu s;
+			s.play(p); 
+		} else if (c == 'h') {
+			HTPMenu h;
+			h.play(p);
 		} else {
 			valid = false;
 			errorCount++;
@@ -73,4 +82,8 @@ void Map::printMenu() {
 "|    Bar(4)    |        Store(5)       |    School(6)  |\n" <<
 "|              |                       |               |\n" <<
 "|______________|_______________________|_______________|\n";
+cout << endl;
+cout << "(i) - inventory" << endl;
+cout << "(s) - stats" << endl;
+cout << "(h) - how to play" << endl;
 }
