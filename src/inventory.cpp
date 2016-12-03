@@ -12,9 +12,13 @@ void InventoryMenu::play(Player &p) {
 	cout << endl;
 
 	vector<Item> inventory = p.inventory;
-	for (int i = 0; i < inventory.size(); ++i) {
-		Item item = inventory.at(i);
-    	cout << i << ". " << item.name << endl;
+	if (inventory.empty()) {
+		cout << "Your inventory is empty." << endl;
+	} else {
+		for (int i = 0; i < inventory.size(); ++i) {
+			Item item = inventory.at(i);
+	    	cout << (i + 1) << ". " << item.name << endl;
+    	}
 	}
 
   	cout << endl;
