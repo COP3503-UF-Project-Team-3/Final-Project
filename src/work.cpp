@@ -13,7 +13,6 @@ void Work::printMenu() { //This will present the player's options at the workpla
     cout<<"3. Computer work \n";
     cout<<"4. Paper work \n";
     cout<<"5. Leave\n\n";
-    cout<<"Choice: ";
     
 }
 
@@ -22,6 +21,8 @@ void Work::play(Player &p) {
     clearConsole();
     printMenu();
     printStatus(p);
+    
+    cout<<"Choice: ";
     char choice;
     
     do {
