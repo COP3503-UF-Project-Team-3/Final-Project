@@ -18,13 +18,12 @@ void Home::play(Player &p) {
 	    if (c == '1') {
 			p.hours = 18;
 			++p.day;
-			string msg = "Hours replensished, ";
+			string msg = "Hours restored, ";
 			if (p.save()) {
-				msg += "game saved. ";
+				msg += "game saved";
 			} else {
-				msg += "unable to save game. ";
+				msg += "unable to save game";
 			}
-			msg += " Make another choice.";
 			updateStatus(p, msg);
 		} else if (c == '2') {
 			// Do nothing
