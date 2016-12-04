@@ -9,88 +9,187 @@
 using namespace std;
 
 void Bar::play(Player &p) {
-	drunkeness = 0;
-	hype = 0;
-	while (true)
-	{
-		int choice = menu(p);
-		if (choice == 1)
-		{
-			drunkeness += 10;
-		}
-		else if (choice == 2)
-		{
-			drunkeness += 5;
-			hype += 10;
-		}
-		else if (choice == 3)
-		{
-			leave();
-			break;
-		}
+    drunkeness = 0;
+    hype = 0;
+    if (p.hours >= 2)
+    {
+        while (true)
+        {
+            int choice = menu(p);
+            if (choice == 0)
+            {
+                clearConsole();
+                cout << "Sorry bud, seems you're broke\n\n";
+                cout << "         _.._..,_,_\n"
+                     << "        (          )\n"
+                     << "         ]~,\"-.-~~[\n"
+                     << "       .=])' (;  ([\n"
+                     << "       | ]:: '    [\n"
+                     << "       '=]): .)  ([\n"
+                     << "         |:: '    |\n"
+                     << "          ~~----~~\n\n";
+                cout << "Enter a key to return to the bar >>	";
+                getKey();
+            }
+            else if (choice == 1)
+            {
+                drunkeness += 10;
+                p.dollars -= 3;
+            }
+            else if (choice == 2)
+            {
+                drunkeness += 5;
+                hype += 10;
+                p.dollars -= 15;
+            }
+            else if (choice == 3)
+            {
+                leave(p);
+                break;
+            }
+            else
+            {
+                clearConsole();
+                cout << "Hey buddy, what kind of stupid are you?" << endl;
+                cout << "You can press either '1', '2', or '3'. No more, no less." << endl;
+                cout << "Three is the number thou can press to. So try again...\n\n" << endl;
+                cout << "         _.._..,_,_\n"
+                     << "        (          )\n"
+                     << "         ]~,\"-.-~~[\n"
+                     << "       .=])' (;  ([\n"
+                     << "       | ]:: '    [\n"
+                     << "       '=]): .)  ([\n"
+                     << "         |:: '    |\n"
+                     << "          ~~----~~\n\n";
+                cout << "Enter a key to return to the bar >>	";
+                getKey();
+            }
+        }
+    }
+    else
+    {
+		updateStatus(p, "Go home, you're too tired to drink");
 	}
 }
 
 void Bar::printMenu() {
-	
+
 }
 
 int Bar::menu(Player &p)
 {
-	clearConsole();
-	int x = 0, y = 0;
-	cout << "   Welcome to the Drunken Clam!!!\n\n"
-		 << "1. \"Pour me a pint of the dark stuff!\"\n"
-		 << "2. \"Hey everyone! Next round's on me!\"\n"
-		 << "3. \"Alright guys, I'm a head home...\n"
-		 << "    Whatever happens happens.  G'night!\"\n" << endl;
-	if (drunkeness >= 100) { x = 100; } else { x = drunkeness; }
-	if (hype >= 100) { y = 100; } else { y = hype; }
-	cout << "Drunkeness: " << x << "	Bar Hype: " << y << endl << endl;
-	//cout << "Choice::	";
-	printStatus(p);
-	int choice = 0;
-	//TODO Error check
-	choice = getKey() - '0';
-	//cin >> choice;
-	return choice;
+    clearConsole();
+    int x = 0, y = 0;
+    cout << "   Welcome to the Drunken Clam!!!\n\n"
+         << "1. \"Pour me a pint of the dark stuff!  ( 3 dollars )\"\n"
+         << "2. \"Hey everyone! Next round's on me!  ( 15 dollars )\"\n"
+         << "3. \"Alright guys, I'm a head home...\n"
+         << "    Whatever happens happens.  G'night!\"\n" << endl;
+    if (drunkeness >= 100) {
+        x = 100;
+    }
+    else {
+        x = drunkeness;
+    }
+    if (hype >= 100) {
+        y = 100;
+    }
+    else {
+        y = hype;
+    }
+    cout << "Drunkeness: " << x << "	Bar Hype: " << y << endl << endl;
+    //cout << "Choice::	";
+    printStatus(p);
+    int choice = 0;
+    choice = getKey() - '0';
+    if ((choice == 1 && p.dollars < 3) || (choice == 2 && p.dollars < 15))
+    {
+        //updateStatus(p, "Sorry bud, seems you're broke");
+        //getKey();
+        return 0;
+    }
+    else if (choice != 1)
+    {
+        if (choice != 2)
+        {
+            if (choice != 3)
+            {
+                return -1;
+            }
+        }
+    }
+    //else if (choice < 1 || choice > 3)
+    return choice;
 }
 
-void Bar::leave()
+void Bar::leave(Player &p)
 {
-	clearConsole();
-	int avgNight = (drunkeness + hype) / 2;
-	if (avgNight > 80)
-	{
-		cout << randomNight(3) << endl;
-	}
-	else if (avgNight > 50)
-	{
-		cout << randomNight(2) << endl;
-	}
-	else if (avgNight > 20)
-	{
-		cout << randomNight(1) << endl;
-	}
-	else
-	{
-		cout << "You had a decent night\n"
-			 << "but you went home basically sober...\n" << endl;
-	}
-	drunkeness = 0;
-	hype = 0;
-	cout << "\nHit a key to continue..." << endl;
-	getKey();
+    clearConsole();
+    int avgNight = (drunkeness + hype) / 2;
+    if (avgNight > 80)
+    {
+        cout << "********************************\n\n";
+        cout << randomNight(3) << endl;
+        cout << "\n********************************\n";
+        if (p.hours - 6 < 0) {
+            p.hours = 0;
+        }
+        else {
+            p.hours -= 6;
+        }
+    }
+    else if (avgNight > 50)
+    {
+        cout << "********************************\n\n";
+        cout << randomNight(2) << endl;
+        cout << "\n********************************\n";
+        if (p.hours - 4 < 0) {
+            p.hours = 0;
+        }
+        else {
+            p.hours -= 4;
+        }
+    }
+    else if (avgNight > 20)
+    {
+        cout << "********************************\n\n";
+        cout << randomNight(1) << endl;
+        cout << "\n********************************\n";
+        if (p.hours - 2 < 0) {
+            p.hours = 0;
+        }
+        else {
+            p.hours -= 2;
+        }
+    }
+    else
+    {
+        cout << "********************************\n\n";
+        cout << "You had a decent night\n"
+             << "but you went home basically sober..." << endl;
+        cout << "\n********************************\n";
+        if (p.hours - 1 < 0) {
+            p.hours = 0;
+        }
+        else {
+            p.hours -= 1;
+        }
+    }
+    drunkeness = 0;
+    hype = 0;
+    cout << "\nHit a key to continue..." << endl;
+    getKey();
 }
 
 string Bar::randomNight(int rank)
 {
-	double randNum = (double)rand()/RAND_MAX;
-	int index = (int)round(3 * randNum);
-	if (drunkeness == 100 && hype == 0)
-	{
-		return "You Killed Mufasa!";
-	}
+    srand(time(NULL));
+    double randNum = (double)rand()/RAND_MAX;
+    int index = (int)round(3 * randNum);
+    if (drunkeness == 100 && hype == 0)
+    {
+        return "You Killed Mufasa!";
+    }
     else if (rank == 1)
     {
         string rank1[4] =
@@ -124,7 +223,9 @@ string Bar::randomNight(int rank)
         };
         return rank3[index];
     }
-    else { return ""; }
+    else {
+        return "";
+    }
 }
 
 

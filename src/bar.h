@@ -16,7 +16,7 @@ public:
 private:
 	void printMenu();
 	int menu(Player &p);
-	void leave();
+	void leave(Player &p);
 	std::string randomNight(int rank);
 	int drunkeness;
 	int hype;
