@@ -9,9 +9,9 @@ using namespace std;
 //Prints out schooling options for user to select from. Each option has the possibility of awarding more intelligence than others, however they will respectively take more hours to accomplish.
 void School::printMenu() {
     cout << "Hello, Student! Here you will increase intelligence. Every key you hit will cost you at least an hour. Select one of the following: \n" <<
-    "1. Lecture (+3) \n" <<
-    "2. Lab (+1) \n" <<
-    "3. Project (+10) \n" <<
+    "1. Lecture (+3) (1-3 hours) \n" <<
+    "2. Lab (+1) (1-3 hours) \n" <<
+    "3. Project (+10) (1-3 hours) \n" <<
     "Q. Leave \n";
 }
 

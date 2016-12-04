@@ -10,9 +10,9 @@ using namespace std;
 //awarding more strength will take more hours to accomplish.
 void Gym::printMenu() {
     cout << "Welcome to the gym! Working out increases your strength. Choose a workout: \n" <<
-    "1. Cardio (+1) \n" <<
-    "2. Upper body (+3) \n" <<
-    "3. Lower body (+3) \n" <<
+    "1. Cardio (+1 str) (1-2 hours) \n" <<
+    "2. Upper body (+3 str) (1-2 hours) \n" <<
+    "3. Lower body (+3 str) (1-2 hours) \n" <<
     "Q. Leave \n";
 }
 
