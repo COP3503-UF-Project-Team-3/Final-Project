@@ -7,6 +7,7 @@
 using namespace std;
 
 void InventoryMenu::play(Player &p) {
+	clearConsole();
 	cout << endl;
 	cout << "Inventory" << endl;
 	cout << endl;
@@ -17,13 +18,14 @@ void InventoryMenu::play(Player &p) {
 	} else {
 		for (int i = 0; i < inventory.size(); ++i) {
 			Item item = inventory.at(i);
-	    	cout << (i + 1) << ". " << item.name << endl;
-    	}
+			cout << (i + 1) << ". " << item.name <<
+				" (" << item.quantity << ")" << endl;
+		}
 	}
 
-  	cout << endl;
-  	cout << "Press any key to continue." << endl;
-  	getKey();
+	cout << endl;
+	cout << "Press any key to continue." << endl;
+	getKey();
 }
 
 void InventoryMenu::printMenu() {
