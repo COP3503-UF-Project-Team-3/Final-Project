@@ -5,23 +5,27 @@ CC = g++
 CFLAGS = -g -Wall
 VFLAG = -std=c++11
 TARGET = finalproject.out
-INCLUDES = -I libraries/
-SRC = src/
-SOURCES = $(wildcard $(SRC)*.cpp)
+INCLUDES = -I libraries
+SRC = src
+BUILD = build
+SOURCES = $(wildcard $(SRC)/*.cpp)
 #Objects will just be all the sources files
-OBJECTS = $(SOURCES:%.cpp=%.o)
+OBJECTS = $(addprefix $(BUILD)/, $(notdir $(SOURCES:%.cpp=%.o)))
 
-default: $(TARGET)
+default: $(BUILD) $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $(TARGET) $^
 
-%.o: %.cpp
+$(BUILD)/%.o: $(SRC)/%.cpp
 	$(CC) $(CFLAGS) $(VFLAG) $(INCLUDES) -o $@ -c $^
+
+$(BUILD): |
+	mkdir -p $@
 
 phony:
 	echo $(SOURCES)
 
 clean:
-	$(RM) $(TARGET) $(OBJECTS)
+	$(RM) $(TARGET) $(BUILD)/*
 
