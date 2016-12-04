@@ -6,13 +6,18 @@
 
 using namespace std;
 
-int main() {
-	
-	return 0;
+void printMenu() {
+	cout << "Stick RPG" << endl;
+	cout << endl;
+	cout << "\t" << "1. New Game" << endl;
+	cout << "\t" << "2. Continue" << endl;
+	cout << "\t" << "3. Quit" << endl;
+	cout << endl;
 }
 
-void TitleMenu::play(Player &p) {
-	clearConsole();
+int main() {
+	
+	Menu::clearConsole();
 	
 	// Wait for choice
 	char c;
@@ -27,7 +32,7 @@ void TitleMenu::play(Player &p) {
 		printMenu();
 		cout << "Tap the key of your choice to begin!" << endl;
 		cout << endl;
-		c = getKey();
+		c = Menu::getKey();
 		chose = true;
 	} while(c != '1' && c != '2' and c != '3');
 
@@ -63,14 +68,7 @@ void TitleMenu::play(Player &p) {
 		cout << "Quit!" << endl;
 		// Do nothing so the program exits
 	}
-}
 
-void TitleMenu::printMenu() {
-	cout << "Stick RPG" << endl;
-	cout << endl;
-	cout << "\t" << "1. New Game" << endl;
-	cout << "\t" << "2. Continue" << endl;
-	cout << "\t" << "3. Quit" << endl;
-	cout << endl;
+	return 0;
 }
 
