@@ -13,7 +13,7 @@
 
 #include <iostream>
 #include "menu.h"
-#include "MYMENU.h" //PLACE YOUR HEADER FILE HERE
+#include "work.h" //PLACE YOUR HEADER FILE HERE
 
 using namespace std;
 
@@ -60,7 +60,7 @@ public:
  */
 
 int main() {
-	MYMENU m; //Replace this variable type with the name of your class to test it
+	Work m; //Replace this variable type with the name of your class to test it
 	//Create player for testing
 	Player p(false);
 	p.name = "Bobby";
