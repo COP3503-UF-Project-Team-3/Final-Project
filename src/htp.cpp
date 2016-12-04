@@ -19,6 +19,7 @@ void HTPMenu::play() {
 }
 
 void HTPMenu::showRules() {
+	clearConsole();
 	printMenu();
 	cout << "Hit any key to continue!" << endl;
 	getKey();
