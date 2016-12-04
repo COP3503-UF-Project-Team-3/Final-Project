@@ -16,7 +16,7 @@ void InventoryMenu::play(Player &p) {
 	if (inventory.empty()) {
 		cout << "Your inventory is empty." << endl;
 	} else {
-		for (int i = 0; i < inventory.size(); ++i) {
+		for (unsigned int i = 0; i < inventory.size(); ++i) {
 			Item item = inventory.at(i);
 			cout << (i + 1) << ". " << item.name <<
 				" (" << item.quantity << ")" << endl;
