@@ -30,3 +30,6 @@
 
 # Swap
 *.swp
+
+# Json Objects (Saves)
+*.json
