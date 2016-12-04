@@ -42,7 +42,7 @@ void Bar::play(Player &p) {
 		}
 		else if (choice == 3)
 		{
-			leave();
+			leave(p);
 			break;
 		}
 		else
@@ -105,7 +105,7 @@ int Bar::menu(Player &p)
 	return choice;
 }
 
-void Bar::leave()
+void Bar::leave(Player &p)
 {
 	clearConsole();
 	int avgNight = (drunkeness + hype) / 2;
@@ -114,18 +114,24 @@ void Bar::leave()
 		cout << "********************************\n\n";
 		cout << randomNight(3) << endl;
 		cout << "\n********************************\n";
+		if (p.hours - 6 < 0) { p.hours = 0; }
+		else { p.hours -= 6; }
 	}
 	else if (avgNight > 50)
 	{
 		cout << "********************************\n\n";
 		cout << randomNight(2) << endl;
 		cout << "\n********************************\n";
+		if (p.hours - 4 < 0) { p.hours = 0; }
+		else { p.hours -= 4; }
 	}
 	else if (avgNight > 20)
 	{
 		cout << "********************************\n\n";
 		cout << randomNight(1) << endl;
 		cout << "\n********************************\n";
+		if (p.hours - 2 < 0) { p.hours = 0; }
+		else { p.hours -= 2; }
 	}
 	else
 	{
@@ -133,6 +139,8 @@ void Bar::leave()
 		cout << "You had a decent night\n"
 			 << "but you went home basically sober..." << endl;
 		cout << "\n********************************\n";
+		if (p.hours - 1 < 0) { p.hours = 0; }
+		else { p.hours -= 1; }
 	}
 	drunkeness = 0;
 	hype = 0;
