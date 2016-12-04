@@ -15,7 +15,7 @@ void HTPMenu::play() {
 	// Go to character creation
 	Player p = newChar();
 	Map m;
-	m.play(&p);
+	m.play(p);
 }
 
 void HTPMenu::showRules() {
