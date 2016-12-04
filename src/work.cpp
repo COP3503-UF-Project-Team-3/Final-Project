@@ -36,7 +36,7 @@ void Work::play(Player &p) {
 
                 cout<<"Everyone gets a pay raise because of recent impressive gains.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
             
@@ -44,7 +44,7 @@ void Work::play(Player &p) {
 
                 cout<<"You have been tapped as project manager for the next major project.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=2;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -52,7 +52,7 @@ void Work::play(Player &p) {
 
                 cout<<"Everyone loses a portion of their salary for a recent faulty project.\n";
                 p.dollars-=5; p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
             
@@ -60,7 +60,7 @@ void Work::play(Player &p) {
 
                 cout<<"You are responsible for bringing food to the meeting.\n";
                 p.dollars-=5; p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -68,7 +68,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must pitch ideas for an open-ended project proposed by a client.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
                 
             }
 
@@ -76,7 +76,7 @@ void Work::play(Player &p) {
 
                 cout<<"You are asked to go on an out-of-state business project next month.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -84,7 +84,7 @@ void Work::play(Player &p) {
 
                 cout<<"You are sent home early for completing work quicker than anticipated.\n";
                 p.dollars+=0; p.hours+=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
             
@@ -96,7 +96,7 @@ void Work::play(Player &p) {
 
                 cout<<"The owner of a locally-owned restaurant needs a program that handles income and inventory.\n";
                 p.dollars+=(15+p.intelligence/2); p.hours-=3;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -104,7 +104,7 @@ void Work::play(Player &p) {
 
                 cout<<"The city government enlists your help with a utility department's computer program.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -112,7 +112,7 @@ void Work::play(Player &p) {
 
                 cout<<"A local insurance company needs assistance with removing software bugs from its security infrastructure.\n";
                 p.dollars+=(15+p.intelligence/2); p.hours-=3;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
             
@@ -120,7 +120,7 @@ void Work::play(Player &p) {
 
                 cout<<"The app for the city transit system is in need of updates to enhance real-time features.\n";
                 p.dollars+=(15+p.intelligence/2); p.hours-=3;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -128,7 +128,7 @@ void Work::play(Player &p) {
 
                 cout<<"The local school district's online information database is in need of enhanced security measures.\n";
                 p.dollars+=(15+p.intelligence/2); p.hours-=3;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -136,7 +136,7 @@ void Work::play(Player &p) {
 
                 cout<<"The local arena is in search of assistance with graphics for entertainment during events.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=2;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -144,7 +144,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must lead a team of workers in installing completely new software at a local TV affiliate.\n";
                 p.dollars+=(20+p.intelligence); p.hours-=4;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
             
@@ -156,7 +156,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must revamp a program that was written five years ago.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=2;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -164,7 +164,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must start implementing a new programming language for a new project.\n";
                 p.dollars+=(15+p.intelligence/2); p.hours-=3;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -172,7 +172,7 @@ void Work::play(Player &p) {
 
                 cout<<"You are in charge of the personal computer repair operations for the day.\n";
                 p.dollars+=(25+p.intelligence); p.hours-=5;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
             
@@ -180,7 +180,7 @@ void Work::play(Player &p) {
 
                 cout<<"You are in charge of website design/interface services for clients today.\n";
                 p.dollars+=(25+p.intelligence); p.hours-=5;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -188,7 +188,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must tackle writing an assigned fragment of a program.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=2;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -196,7 +196,7 @@ void Work::play(Player &p) {
 
                 cout<<"You are in charge of operating system upgrade services for the day.\n";
                 p.dollars+=(20+p.intelligence); p.hours-=4;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -208,7 +208,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must assist the company manager in organizing the employee payroll.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -216,7 +216,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must write up payment contracts for recent clients.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=2;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -224,7 +224,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must draft write-ups for a program requested by a local fast-food restaurant.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
             
@@ -232,7 +232,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must shred old plans that are no longer relevant to current projects.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -240,7 +240,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must write a quarterly/monthly report about the company's recent operations.\n";
                 p.dollars+=(15+p.intelligence/2); p.hours-=3;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -248,7 +248,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must assist in framing a public advertisement for the company.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
@@ -256,7 +256,7 @@ void Work::play(Player &p) {
 
                 cout<<"You must mail proposal packets to affiliate companies.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=2;
-                Menu::updateStatus(); printMenu();
+                printMenu();
 
             }
 
