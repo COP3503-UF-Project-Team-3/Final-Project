@@ -7,20 +7,20 @@ using namespace std;
 
 void Work::printMenu() { //This will present the player's options at the workplace.
     
-    cout<<"\nLet's get to work! The job won't get done on its own. Pick a task from the list below.\n\n";
     cout<<"1. Company meeting \n";
     cout<<"2. Field task \n";
     cout<<"3. Computer work \n";
     cout<<"4. Paper work \n";
     cout<<"5. Leave\n\n";
+    printStatus(p);
     
 }
 
 void Work::play(Player &p) {
     
     clearConsole();
+    cout<<"\nLet's get to work! The job won't get done on its own. Pick a task from the list below.\n\n";
     printMenu();
-    printStatus(p);
     
     cout<<"\n\n";
     char choice;
@@ -279,7 +279,7 @@ void Work::play(Player &p) {
     
     if (p.hours<=0) {
         
-        cout<<"\nPlease go home and sleep. You have had a long day, and you need some rest.\n";
+        cout<<"Please go home and sleep. You have had a long day, and you need some rest.\n";
         printMenu();
         
     }
