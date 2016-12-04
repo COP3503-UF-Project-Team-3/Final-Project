@@ -1,25 +1,21 @@
 #include "char-creator.h"
 #include "htp.h"
 #include <iostream>
+#include "map.h"
 
 using namespace std;
 
 // User asked for help while playing
 void HTPMenu::play(Player &p) {
 	showRules();
-	// FIXME: show map
-	// Map m;
-	// m.play(&p);
 }
 // User is starting a new game
 void HTPMenu::play() {
 	showRules();
 	// Go to character creation
 	Player p = newChar();
-	p.print();
-	// FIXME: show map
-	// Map m;
-	// m.play(&p);
+	Map m;
+	m.play(&p);
 }
 
 void HTPMenu::showRules() {
