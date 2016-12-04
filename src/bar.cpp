@@ -66,6 +66,10 @@ void Bar::play(Player &p) {
             }
         }
     }
+    else
+    {
+		updateStatus(p, "Go home, you're too tired to drink");
+	}
 }
 
 void Bar::printMenu() {
