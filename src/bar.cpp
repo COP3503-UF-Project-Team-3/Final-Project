@@ -68,8 +68,19 @@ void Bar::play(Player &p) {
     }
     else
     {
-		updateStatus(p, "Go home, you're too tired to drink");
-	}
+			cout << "No time to hit the bar!" << endl;
+			cout << "Go home, you're too tired to drink" << endl;
+			cout << "         _.._..,_,_\n"
+					 << "        (          )\n"
+					 << "         ]~,\"-.-~~[\n"
+					 << "       .=])' (;  ([\n"
+					 << "       | ]:: '    [\n"
+					 << "       '=]): .)  ([\n"
+					 << "         |:: '    |\n"
+					 << "          ~~----~~\n\n";
+			cout << "Enter a key to return...";
+			getKey();
+		}
 }
 
 void Bar::printMenu() {
