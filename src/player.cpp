@@ -14,6 +14,12 @@ using namespace std;
 #define INV_KEY		"inventory"
 #define QTY_KEY		"quantity"
 #define PRICE_KEY	"price"
+#define MQ				"marketQuantity"
+#define MR				"MAX_RESTOCK"
+#define MP				"MAX_PRICE"
+#define MIP				"MIN_PRICE"
+#define MAR				"MARKET_RANGE"
+#define MAM				"MARKET_MIN"
 
 Player::Player(bool fromFile) {
 	if (fromFile) {
@@ -36,6 +42,13 @@ Player::Player(bool fromFile) {
 	  		i.name = j[NAME_KEY].get<string>();
 	  		i.quantity = j[QTY_KEY].get<int>();
 	  		i.price = j[PRICE_KEY].get<int>();
+				//Extras by Jazy
+	  		i.marketQuantity = j[MQ].get<int>();
+	  		i.MAX_RESTOCK = j[MR].get<int>();
+	  		i.MAX_PRICE = j[MP].get<int>();
+	  		i.MIN_PRICE = j[MIP].get<int>();
+	  		i.MARKET_RANGE = j[MAR].get<int>();
+	  		i.MARKET_MIN = j[MAM].get<int>();
 	  		inv.push_back(i);
 		}
 		inventory = inv;
@@ -59,6 +72,13 @@ bool Player::save() {
 		j[NAME_KEY] = i.name;
 		j[QTY_KEY] = i.quantity;
 		j[PRICE_KEY] = i.price;
+		//Extras by Jazy
+		j[MQ] = i.marketQuantity;
+		j[MR] = i.MAX_RESTOCK;
+		j[MP] = i.MAX_PRICE;
+		j[MIP] = i.MIN_PRICE;
+		j[MAR] = i.MARKET_RANGE;
+		j[MAM] = i.MARKET_MIN;
 		inv.push_back(j);
 	}
 	obj[INV_KEY] = inv;
@@ -75,7 +95,7 @@ void Player::print() {
 	cout << "Hours left: " << hours << endl;
 	cout << "Day: " << day << endl;
 	cout << "Items: " << endl;
-	for (int j = 0; j < inventory.size(); ++j) {
+	for (unsigned int j = 0; j < inventory.size(); ++j) {
 		Item i = inventory.at(j);
 		cout << "\t" << "{name: " << i.name << ", qty: " << i.quantity << ", price: " << i.price << "}" << endl;
 	}
