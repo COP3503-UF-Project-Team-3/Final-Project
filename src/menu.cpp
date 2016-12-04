@@ -46,7 +46,7 @@
 
 	//Intercepts and returns the next key the user enter. 
 	//NOTE: Function will hold until the user presses a key
-	char Menu::getKey() const {
+	char Menu::getKey() {
 		return (char)getch();
 	}
 
