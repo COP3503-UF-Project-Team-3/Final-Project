@@ -3,30 +3,25 @@
 #include "home.h"
 #include "htp.h"
 #include "inventory.h"
-#include <iostream>
 #include "map.h"
 #include "school.h"
 #include "stats.h"
 #include "store.h"
 #include "work.h"
+#include <iostream>
 
 using namespace std;
 
 void Map::play(Player &p) {
-	clearConsole();
-	printMenu();
-	printStatus(p);
-
-
-	cout << "\nWhere would you like to go? (1-6)" << endl;
 	char c;
-	bool valid = false;
 	int errorCount = 0; // Counts the number of times an error message is displayed
-	while (!valid) {
+	while (true) {
+		clearConsole();
+		printMenu();
+		printStatus(p);
 
 		c = getKey();
 
-		valid = true;
 		if (c == '1') {
 			Home h;
 			h.play(p);
@@ -55,25 +50,23 @@ void Map::play(Player &p) {
 			HTPMenu h;
 			h.play(p);
 		} else {
-			valid = false;
 			errorCount++;
-
-			if(errorCount > 1) // Don't want to clear the first message
-				clearLine(); // Now let's clear it and write in a new one
 
 			// A list of different error messages so the user knows they are entering invalid input
 			if(errorCount % 3 == 0)
-				cout << "Error: That input is invalid! Please select an integer between 1 and 5.";
+				updateStatus(p, "Error: That input is invalid!");
 			else if(errorCount % 3 == 1)
-				cout << "Error: Input invalid! Valid inputs include integers ranging from 1 to 5.";
+				updateStatus(p, "Error: Input invalid!");
 			else
-				cout << "Error: Invalid input! Please enter an integer between 1 and 5.";
+				updateStatus(p, "Error: Invalid input!");
 		}
 	}
 }
 
 // The Map!
 void Map::printMenu() {
+
+	cout << "\nWhere would you like to go?" << endl;
 	cout <<
 " _______________________________________________________\n" <<
 "|       |  |                             |  |          |\n" <<
@@ -91,8 +84,8 @@ void Map::printMenu() {
 "|    Bar(4)    |        Store(5)       |    School(6)  |\n" <<
 "|              |                       |               |\n" <<
 "|______________|_______________________|_______________|\n";
-cout << endl;
-cout << "(i) - inventory" << endl;
-cout << "(s) - stats" << endl;
-cout << "(h) - how to play" << endl;
+	cout << endl;
+	cout << "(i) - inventory" << endl;
+	cout << "(s) - stats" << endl;
+	cout << "(h) - how to play" << endl;
 }
