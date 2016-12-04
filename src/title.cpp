@@ -67,6 +67,7 @@ int main() {
 		// User tapped '3'
 		cout << "Quit!" << endl;
 		// Do nothing so the program exits
+		exit(0);
 	}
 
 	return 0;
