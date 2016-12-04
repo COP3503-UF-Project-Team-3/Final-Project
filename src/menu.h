@@ -29,10 +29,6 @@ protected:
 	//whole menu.
 	void updateStatus(Player const &p) const;
 	void updateStatus(Player const &p, std::string const &msg) const;
-
-	//Intercepts and returns the next key the user enter. 
-	char getKey() const;
-
 public:
 	//This function will hold all the logic pertaining to your store/building
 	//You will use the printMenu and printStatus functions within this play
@@ -48,6 +44,9 @@ public:
 
 	//Clear the last line that was outputted
 	static void clearLine();
+
+	//Intercepts and returns the next key the user enter. 
+	static char getKey();
 };
 
 

@@ -59,23 +59,23 @@ public:
  *	A sample player object is created for testing purposes here as well
  */
 
-int main() {
-	TitleMenu m; //Replace this variable type with the name of your class to test it
-	//Create player for testing
-	Player p(false);
-	p.name = "Bobby";
-	p.intelligence = 5;
-	p.strength = 5;
-	p.dollars = 200;
-	p.hours = 5;
-	p.day = 0;
+// int main() {
+// 	TitleMenu m; //Replace this variable type with the name of your class to test it
+// 	//Create player for testing
+// 	Player p(false);
+// 	p.name = "Bobby";
+// 	p.intelligence = 5;
+// 	p.strength = 5;
+// 	p.dollars = 200;
+// 	p.hours = 5;
+// 	p.day = 0;
 
-	// For testing
-	// p.save();
+// 	// For testing
+// 	// p.save();
 	
-	cout << "Initializing game..." << endl;
-	//Call play function
-	m.play(p);
-	cout << endl << "Done playing" << endl;
-	return 0;
-}
+// 	cout << "Initializing game..." << endl;
+// 	//Call play function
+// 	m.play(p);
+// 	cout << endl << "Done playing" << endl;
+// 	return 0;
+// }
