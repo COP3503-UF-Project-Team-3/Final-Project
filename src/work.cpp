@@ -22,7 +22,7 @@ void Work::play(Player &p) {
     printMenu();
     printStatus(p);
     
-    cout<<"Choice: ";
+    cout<<"\n";
     char choice;
     
     do {
