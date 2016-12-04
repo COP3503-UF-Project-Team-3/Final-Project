@@ -28,7 +28,7 @@ Player::Player(bool fromFile) {
 
 		// Deserialize items
 		// See: https://github.com/nlohmann/json
-		inventory = {};
+		vector<Item> inv;
 		JSON arr = obj[INV_KEY];
 		for (JSON::iterator it = arr.begin(); it != arr.end(); ++it) {
 	  		JSON j = *it;
@@ -36,8 +36,9 @@ Player::Player(bool fromFile) {
 	  		i.name = j[NAME_KEY].get<string>();
 	  		i.quantity = j[QTY_KEY].get<int>();
 	  		i.price = j[PRICE_KEY].get<int>();
-	  		inventory.push_back(i);
+	  		inv.push_back(i);
 		}
+		inventory = inv;
 	}
 }
 
@@ -73,5 +74,10 @@ void Player::print() {
 	cout << "Cash: $" << dollars << endl;
 	cout << "Hours left: " << hours << endl;
 	cout << "Day: " << day << endl;
+	cout << "Items: " << endl;
+	for (int j = 0; j < inventory.size(); ++j) {
+		Item i = inventory.at(j);
+		cout << "\t" << "{name: " << i.name << ", qty: " << i.quantity << ", price: " << i.price << "}" << endl;
+	}
 	cout << endl;
 }

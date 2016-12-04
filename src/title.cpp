@@ -45,8 +45,7 @@ int main() {
 		// Initialize a `Player` object from a JSON file
 		Player *ptr = NULL;
 		try {
-			Player old = new Player(true);
-			ptr = &old;
+			ptr = new Player(true);
 		} catch (exception &e) {
 			cout << "Unable to retrieve the saved character." << endl;
 			cout << endl;
@@ -58,9 +57,9 @@ int main() {
 			HTPMenu m;
 			m.play();
 		} else {
-			//cout << "Continuing the story of " << (*ptr).name << "..." << endl;
-			//cout << "\n\nPress any key to continue...";
-			//Menu::getKey();
+			cout << "Continuing the story of " << ptr->name << "..." << endl;
+			cout << "\n\nPress any key to continue...";
+			Menu::getKey();
 			Map m;
 			m.play(*ptr);
 		}
