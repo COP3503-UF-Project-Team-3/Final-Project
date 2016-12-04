@@ -23,63 +23,52 @@ void Work::play(Player &p) {
         choice = getKey();
         int event = rand()%7+1; //This will randomly select a workplace event depending on the player's choice of activity.
 				int old = p.dollars; //For printing out how much they made
+				int oldH = p.hours;
         if (choice == '1') {
 					if (p.hours - 1 >= 0) {
+						clearConsole();
             if (event==1) {
                 cout<<"Everyone gets a pay raise because of recent impressive gains.\n";
                 p.dollars+=(7+p.intelligence/4); p.hours-=1;
-								//Print out how much they made
-								string msg = to_string(p.dollars - old) + "$ -1 hours";
-								updateStatus(p, msg);
             }
             else if (event==2) {
                 cout<<"You have been tapped as project manager for the next major project.\n";
                 p.dollars+=(5+p.intelligence/2); p.hours-=1;
-								//Print out how much they made
-								string msg = to_string(p.dollars - old) + "$ -1 hours";
-								updateStatus(p, msg);
             }
             else if (event==3) {
                 cout<<"Everyone loses a portion of their salary for a recent faulty project.\n";
                 p.dollars+=0; p.hours-=1;
-								//Print out how much they made
-								string msg = to_string(p.dollars - old) + "$ -1 hours";
-								updateStatus(p, msg);
             }
             else if (event==4) {
                 cout<<"You are responsible for bringing food to the meeting.\n";
                 p.dollars+=0; p.hours-=1;
-								//Print out how much they made
-								string msg = to_string(p.dollars - old) + "$ -1 hours";
-								updateStatus(p, msg);
             }
             else if (event==5) {
                 cout<<"You must pitch ideas for an open-ended project proposed by a client.\n";
                 p.dollars+=(4+p.intelligence/4); p.hours-=1;
-								//Print out how much they made
-								string msg = to_string(p.dollars - old) + "$ -1 hours";
-								updateStatus(p, msg);
             }
             else if (event==6) {
                 cout<<"You are asked to go on an out-of-state business project next month.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=1;
-								//Print out how much they made
-								string msg = to_string(p.dollars - old) + "$ -1 hours";
-								updateStatus(p, msg);
             }
             else {
                 cout<<"You are sent home early for completing work quicker than anticipated.\n";
                 p.dollars+=5; p.hours+=0;
-								//Print out how much they made
-								string msg = to_string(p.dollars - old) + "$ -0 hours";
-								updateStatus(p, msg);
             }
+						cout << "\n\n\nHit any key to continue...";
+						getKey();
+						//Print out how much they made
+						printMenu();
+						string msg = to_string(p.dollars - old) + "$ " 
+							+ to_string(p.hours - oldH) + " hours";
+						printStatus(p, msg);
 					} else {
 						updateStatus(p, "Not enough time left!");
 					}
         } 
         else if (choice == '2') {
 					if (p.hours - 2 >= 0) {
+						clearConsole();
             if (event==1) {
                 cout<<"The owner of a locally-owned restaurant needs a program that handles income and inventory.\n";
                 p.dollars+=(15+p.intelligence/2); p.hours-=2;
@@ -108,15 +97,20 @@ void Work::play(Player &p) {
                 cout<<"You must lead a team of workers in installing completely new software at a local TV affiliate.\n";
                 p.dollars+=(20+p.intelligence); p.hours-=2;
             }
+						cout << "\n\n\nHit any key to continue...";
+						getKey();
 						//Print out how much they made
-						string msg = to_string(p.dollars - old) + "$ -2 hours";
-						updateStatus(p, msg);
+						printMenu();
+						string msg = to_string(p.dollars - old) + "$ " 
+							+ to_string(p.hours - oldH) + " hours";
+						printStatus(p, msg);
 					} else {
 						updateStatus(p, "Not enough time left!");
 					}
         }
         else if (choice == '3') {
 					if (p.hours - 3 >= 0) {
+						clearConsole();
              if (event==1) {
                 cout<<"You must revamp a program that was written five years ago.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=3;
@@ -141,15 +135,20 @@ void Work::play(Player &p) {
                 cout<<"You are in charge of operating system upgrade services for the day.\n";
                 p.dollars+=(20+p.intelligence); p.hours-=3;
             }
+						cout << "\n\n\nHit any key to continue...";
+						getKey();
 						//Print out how much they made
-						string msg = to_string(p.dollars - old) + "$ -3 hours";
-						updateStatus(p, msg);
+						printMenu();
+						string msg = to_string(p.dollars - old) + "$ " 
+							+ to_string(p.hours - oldH) + " hours";
+						printStatus(p, msg);
 					} else {
 						updateStatus(p, "Not enough time left!");
 					}
         } 
         else if (choice == '4') {
 					if (p.hours - 6 >= 0) {
+						clearConsole();
             if (event==1) {
                 cout<<"You must assist the company manager in organizing the employee payroll.\n";
                 p.dollars+=(5+p.intelligence/4); p.hours-=6;
@@ -178,9 +177,13 @@ void Work::play(Player &p) {
                 cout<<"You must mail proposal packets to affiliate companies.\n";
                 p.dollars+=(10+p.intelligence/2); p.hours-=6;
             }
+						cout << "\n\n\nHit any key to continue...";
+						getKey();
 						//Print out how much they made
-						string msg = to_string(p.dollars - old) + "$ -6 hours";
-						updateStatus(p, msg);
+						printMenu();
+						string msg = to_string(p.dollars - old) + "$ " 
+							+ to_string(p.hours - oldH) + " hours";
+						printStatus(p, msg);
 					} else {
 						updateStatus(p, "Not enough time left!");
 					}
@@ -192,7 +195,7 @@ void Work::play(Player &p) {
             updateStatus(p, err);
         }
     } 
-    while (choice != '5' && p.hours>0);
+    while (choice != '5');
 		//NOTE LOGIC ERROR: Hours can end up being less than 0! Jazy fixed
     /* fuckit
 		if (p.hours<=0) {
