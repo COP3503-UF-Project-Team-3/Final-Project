@@ -2,7 +2,7 @@
 CC = g++
 #	-g adds debugging information to executable
 #	-Wall shows most warnings
-CFLAGS = -g -Wall
+CFLAGS = -Wall
 VFLAG = -std=c++11
 TARGET = finalproject.out
 INCLUDES = -I libraries
@@ -13,6 +13,9 @@ SOURCES = $(wildcard $(SRC)/*.cpp)
 OBJECTS = $(addprefix $(BUILD)/, $(notdir $(SOURCES:%.cpp=%.o)))
 
 default: $(BUILD) $(TARGET)
+
+debug: CFLAGS += -g
+debug: default
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $(TARGET) $^
