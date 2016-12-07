@@ -32,7 +32,12 @@ Player newChar() {
 		cin >> in;
 		cout << "How many points would you like to allocate into strength? ";
 		cin >> str;
-		if (in < 0 || str < 0) {
+		if (!cin.good()) {
+			//Error check
+			cout << "Invalid Input!" << endl;
+			cin.clear();
+			cin.ignore(256, '\n');
+		} else if (in < 0 || str < 0) {
 			cout << "You must enter positive numbers." << endl;
 		} else if (in + str != NUM_POINTS) {
 			cout << "The numbers must add to the number of available points." << endl;
